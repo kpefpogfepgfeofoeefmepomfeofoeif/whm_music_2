@@ -313,7 +313,7 @@ function play(guild, song) {
 
 
 client.on('message', message => {
-    if (message.content === 'help') {
+    if (message.content === '2help') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر الميوزك...**')
         .setDescription('**برفكس البوت (!)**')
@@ -352,5 +352,7 @@ client.on('ready', () => {
 client.user.setGame(`Type 2help`,"http://twitch.tv/whm")
 client.user.setStatus("dnd")
 });
+
+client.on('ready',async () => { client.channels.find(ch => ch.id === "481571330077097998" && ch.type === 'voice').join(); });
 
 client.login(process.env.BOT_TOKEN);
